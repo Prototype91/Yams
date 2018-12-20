@@ -32,6 +32,7 @@ def roll_dice_joueur_A():
     #Liste dans laquelle sont compris les résultats de dés :
     l = []
 
+    #On lance les 5 dés à 6 faces :
     for i in range(1, 6):
         result = randint(1, 6)
         l.append(result)
@@ -95,6 +96,7 @@ def roll_dice_joueur_B():
     #Liste dans laquelle sont compris les résultats de dés :
     l = []
 
+    #On lance les 5 dés à 6 faces :
     for i in range(1, 6):
         result = randint(1, 6)
         l.append(result)
@@ -117,25 +119,25 @@ def roll_dice_joueur_B():
     
     #On détermine la combinaison de dés :
     if set(counter_B.values()) == {0, 5}:
-        print("Vous avez un Yams")
+        print("Vous avez un Yams\n") 
 
     if set(counter_B.values()) == {0, 1, 4}:
-        print("Vous avez un carré")
+        print("Vous avez un carré\n")
         joueur_B["carré"] = True
 
     if set(counter_B.values()) == {0, 2, 3}:
-        print("Vous avez un Full")
+        print("Vous avez un Full\n")
         joueur_B["full"] = True
 
     if set(counter_B.values()) == {0, 1, 3}:
-        print("Vous avez un Brelan")
+        print("Vous avez un Brelan\n")
         joueur_B["brelan"] = True
 
     if set(counter_B.values()) == {0, 1}:
-        print("Vous n'avez rien")
+        print("Vous n'avez rien\n")
 
     if set(counter_B.values()) == {0, 1, 2}:
-        print("Vous avez au moins une paire")
+        print("Vous avez au moins une paire\n")
 
     #Cas où le joueur B à gagné :
     if joueur_B["carré"] == True and joueur_B["full"] == True and joueur_B["brelan"] == True:
@@ -147,6 +149,6 @@ def game():
     roll_dice_joueur_A()
     roll_dice_joueur_B()
 
-#Boucle de jeu :
+#Boucle de jeu jusqu'à ce que l'un des deux joueurs gagne :
 while joueur_A["winner"] == False and joueur_B["winner"] == False:
     game()
